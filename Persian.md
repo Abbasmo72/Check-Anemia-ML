@@ -10,24 +10,24 @@
 عوارض کم خونی می تواند جدی باشد، به خصوص اگر درمان نشود. این عوارض شامل خطر بیشتر عفونت ها، مشکلات قلبی عروقی مانند نارسایی قلبی و کاهش توانایی بدن برای تحمل فعالیت های فیزیکی است. در موارد شدید، کم خونی می تواند منجر به اختلالات جدی تری مانند سکته مغزی یا حمله قلبی شود.
 تشخیص کم خونی معمولاً از طریق آزمایش خون انجام می شود و درمان بستگی به نوع کم خونی دارد. برای کمبود آهن، مکمل های آهن و تغییرات رژیم غذایی ممکن است موثر باشد. در صورت کمبود ویتامین، مکمل های مربوطه تجویز می شود.
 
-## Logistic Regression and Its Performance
-Logistic regression is a statistical model used to predict the probability of a specific event occurring. This model has widespread applications in fields such as medicine, finance, and social sciences. Unlike linear regression, which is used for predicting numerical values, logistic regression is designed for predicting binary (two-option) variables.
-The performance of logistic regression works by using the logistic function to model the probability of an event occurring. This function keeps the predicted values between 0 and 1, making it suitable for predicting probabilities. In this model, the coefficients derived from the data assist in making predictions.
-To evaluate the performance of a logistic regression model, metrics such as accuracy, recall, and precision are commonly used. These metrics help us understand how well the model performs and what proportion of predictions are correct.
-Logistic regression can provide valuable insights into the importance of each feature in predicting the outcome. This information can be highly beneficial in decision-making and optimizing strategies across various domains.
+## رگرسیون لجستیک و عملکرد آن
+رگرسیون لجستیک یک مدل آماری است که برای پیش بینی احتمال وقوع یک رویداد خاص استفاده می شود. این مدل کاربردهای گسترده ای در زمینه هایی مانند پزشکی، مالی و علوم اجتماعی دارد. برخلاف رگرسیون خطی که برای پیش‌بینی مقادیر عددی استفاده می‌شود، رگرسیون لجستیک برای پیش‌بینی متغیرهای باینری (دو گزینه‌ای) طراحی شده است.
+عملکرد رگرسیون لجستیک با استفاده از تابع لجستیک برای مدل‌سازی احتمال وقوع یک رویداد کار می‌کند. این تابع مقادیر پیش بینی شده را بین 0 و 1 نگه می دارد و برای پیش بینی احتمالات مناسب است. در این مدل، ضرایب به دست آمده از داده ها به پیش بینی کمک می کند.
+برای ارزیابی عملکرد یک مدل رگرسیون لجستیک، معمولاً از معیارهایی مانند دقت، یادآوری و دقت استفاده می‌شود. این معیارها به ما کمک می‌کنند تا بفهمیم مدل چقدر خوب عمل می‌کند و چه نسبتی از پیش‌بینی‌ها درست است.
+رگرسیون لجستیک می تواند بینش ارزشمندی در مورد اهمیت هر ویژگی در پیش بینی نتیجه ارائه دهد. این اطلاعات می تواند در تصمیم گیری و بهینه سازی استراتژی ها در حوزه های مختلف بسیار سودمند باشد.
 
-## Analysis and Prediction of Anemia Using Logistic Regression
-This code creates and evaluates a logistic regression model to predict anemia based on blood test data. Here are the steps involved in the code explained in detail:
-1. <b>Importing Libraries:</b>
-  - pandas: For data manipulation.
-  - sklearn.model_selection: To split the data into training and testing sets.
-  - sklearn.linear_model: To use the logistic regression model.
-  - sklearn.metrics: To calculate the model's accuracy.
-2. <b>Loading and Preparing the Dataset:</b>
-  - Data is loaded from a CSV file named CBCdata_for_meandeley_csv.csv.
-  - Column names are manually set.
-  - The first row containing descriptions is removed.
-  - Data is converted to numeric types, and any rows with missing values are dropped.
+## تجزیه و تحلیل و پیش بینی کم خونی با استفاده از رگرسیون لجستیک
+این کد یک مدل رگرسیون لجستیک را برای پیش بینی کم خونی بر اساس داده های آزمایش خون ایجاد و ارزیابی می کند. در اینجا مراحل مربوط به کد توضیح داده شده است:
+1. <b>وارد کردن کتابخانه ها:</b>
+  - پانداها: برای دستکاری داده ها.
+  - sklearn.model_selection: برای تقسیم داده ها به مجموعه های آموزشی و آزمایشی.
+  - sklearn.linear_model: برای استفاده از مدل رگرسیون لجستیک.
+  - sklearn.metrics: برای محاسبه دقت مدل.
+2. <b>بارگیری و آماده سازی مجموعه داده:</b>
+  - داده ها از یک فایل CSV با نام CBCdata_for_meandeley_csv.csv بارگیری می شوند.
+  - نام ستون ها به صورت دستی تنظیم می شود.
+  - ردیف اول حاوی توضیحات حذف می شود.
+  - داده ها به انواع عددی تبدیل می شوند و هر ردیفی که مقادیر گم شده باشد حذف می شود.
 3. <b>Defining Input Features (X) and Target Variable (y):</b>
   - Features include the values from blood tests (RBC, PCV, MCV, MCH, MCHC, RDW, TLC, PLT).
   - The target variable indicates whether hemoglobin (HGB) is less than 12. If it is less, it is marked as 1 (anemia), otherwise as 0 (no anemia).
