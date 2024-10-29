@@ -5,7 +5,7 @@
 </div>
 <hr>
 
-[Click to see the descriptions in Persian language](Check-Anemia-ML/Persian.md)
+[Click to see the descriptions in Persian language](Persian.md)
 <hr>
 
 ## Anemia: Symptoms and Complications
