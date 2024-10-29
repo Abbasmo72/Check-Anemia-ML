@@ -5,6 +5,9 @@
 </div>
 <hr>
 
+[Click to see the descriptions in Persian language](Check-Anemia-ML/Persian.md)
+<hr>
+
 ## Anemia: Symptoms and Complications
 Anemia is a medical condition characterized by a lower-than-normal number of red blood cells or hemoglobin levels in the blood. This condition can arise from various causes, including iron deficiency, vitamin B12 or folate deficiency, genetic disorders, and chronic diseases. Symptoms of anemia may include extreme fatigue, pale skin, dizziness, shortness of breath, and a rapid heartbeat.
 The complications of anemia can be serious, especially if left untreated. These complications include a higher risk of infections, cardiovascular problems such as heart failure, and a reduced ability of the body to endure physical activities. In severe cases, anemia can lead to more serious disorders like stroke or heart attack.
