@@ -34,7 +34,132 @@ This code creates and evaluates a logistic regression model to predict anemia ba
   - The program prompts the user to enter values for the features.
   - A prediction is made based on the user's input, and the result (whether anemia is likely or not) is displayed.
 
+## Here’s a line-by-line analysis of the provided code:
+1. This line imports the pandas library, which is used for data manipulation and analysis.
+```python
+import pandas as pd
+```
+2. This line imports the train_test_split function from the sklearn.model_selection module, which is used to split the dataset into training and testing sets.
+```python
+from sklearn.model_selection import train_test_split
+```
+3. This line imports the LogisticRegression model from the sklearn.linear_model module, which will be used to create the logistic regression model.
+```python
+from sklearn.linear_model import LogisticRegression
+```
+4. This line imports the accuracy_score function from the sklearn.metrics module, which is used to calculate the accuracy of the model.
+```python
+from sklearn.metrics import accuracy_score
+```
+5. This line loads the data from a CSV file named CBCdata_for_meandeley_csv.csv and stores it in a DataFrame called data.
+```python
+data = pd.read_csv('CBCdata_for_meandeley_csv.csv')
+```
+6. This line manually sets the column names of the DataFrame.
+```python
+data.columns = ['S.No', 'Age', 'Sex', 'RBC', 'PCV', 'MCV', 'MCH', 'MCHC', 'RDW', 'TLC', 'PLT', 'HGB']
+```
+7. This line removes the first row of the DataFrame, which usually contains descriptions or headers.
+```python
+data = data[1:]
+```
+8. This line attempts to convert all values in the DataFrame to numeric types. If any errors occur (such as non-numeric values), those values are converted to NaN.
+```python
+data = data.apply(pd.to_numeric, errors='coerce')
+```
+9. This line drops all rows containing missing values (NaN) from the DataFrame.
+```python
+data = data.dropna()
+```
+10. This line defines the input features (X), which include the values from various blood tests.
+```python
+X = data[['RBC', 'PCV', 'MCV', 'MCH', 'MCHC', 'RDW', 'TLC', 'PLT']]
+```
+11. This line defines the target variable (y). It sets the value to 1 (indicating anemia) if the hemoglobin (HGB) level is less than 12, and 0 (indicating no anemia) otherwise.
+```python
+y = (data['HGB'] < 12).astype(int)
+```
+12. This line splits the data into training and testing sets. It allocates 80% of the data for training and 20% for testing. The random_state=42 ensures that the data is split the same way every time the code is run.
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+13. This line creates a new instance of the logistic regression model.
+```python
+model = LogisticRegression()
+```
+14. This line trains the logistic regression model using the training data.
+```python
+model.fit(X_train, y_train)
+```
+15. This line makes predictions on the test set and stores the results in y_pred.
+```python
+y_pred = model.predict(X_test)
+```
+16. This line calculates the accuracy of the model by comparing the predicted values to the actual values.
+```python
+accuracy = accuracy_score(y_test, y_pred)
+```
+17. This line prints the accuracy of the model formatted to two decimal places.
+```python
+print(f"Model accuracy: {accuracy:.2f}")
+```
+18. This line prompts the user to input values for the features and stores these values in a list called user_input. Each input is converted to a float.
+```python
+user_input = [float(input(f"Please enter the value for {col}: ")) for col in X.columns]
+```
+19. This line makes a prediction based on the user's input and stores the result in prediction.
+```python
+prediction = model.predict([user_input])
+```
+20. This section checks the prediction result and displays an appropriate message to the user: if the prediction is 1, it indicates that anemia is likely; if it is 0, it indicates no anemia.
+```python
+if prediction[0] == 1:
+    print("Result: Anemia is likely.")
+else:
+    print("Result: No anemia.")
+```
 
+## Python Code
+```python
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
+# Load and prepare the dataset
+data = pd.read_csv('CBCdata_for_meandeley_csv.csv')
+data.columns = ['S.No', 'Age', 'Sex', 'RBC', 'PCV', 'MCV', 'MCH', 'MCHC', 'RDW', 'TLC', 'PLT', 'HGB']
 
+# Remove the first row containing descriptions
+data = data[1:]
 
+# Convert data to numeric and drop any rows with missing values
+data = data.apply(pd.to_numeric, errors='coerce')
+data = data.dropna()
+
+# Define input features (X) and target variable (y)
+X = data[['RBC', 'PCV', 'MCV', 'MCH', 'MCHC', 'RDW', 'TLC', 'PLT']]
+y = (data['HGB'] < 12).astype(int)  # Anemia is indicated if Hemoglobin is less than 12
+
+# Split data into training and test sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Initialize and train the model
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+# Evaluate the model
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"Model accuracy: {accuracy:.2f}")
+
+# Prediction with new user input
+user_input = [float(input(f"Please enter the value for {col}: ")) for col in X.columns]
+prediction = model.predict([user_input])
+
+# Display result based on prediction
+if prediction[0] == 1:
+    print("Result: Anemia is likely.")
+else:
+    print("Result: No anemia.")
+```
