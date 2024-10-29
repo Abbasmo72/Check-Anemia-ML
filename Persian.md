@@ -28,97 +28,97 @@
   - نام ستون ها به صورت دستی تنظیم می شود.
   - ردیف اول حاوی توضیحات حذف می شود.
   - داده ها به انواع عددی تبدیل می شوند و هر ردیفی که مقادیر گم شده باشد حذف می شود.
-3. <b>Defining Input Features (X) and Target Variable (y):</b>
-  - Features include the values from blood tests (RBC, PCV, MCV, MCH, MCHC, RDW, TLC, PLT).
-  - The target variable indicates whether hemoglobin (HGB) is less than 12. If it is less, it is marked as 1 (anemia), otherwise as 0 (no anemia).
-4. <b>Splitting the Data:</b>
-  - The data is split into 80% for training and 20% for testing.
-5. <b>Training the Model:</b>
-  - A logistic regression model is created and trained on the training data.
-6. <b>Evaluating the Model:</b>
-  - Predictions are made for the test set, and the accuracy of the model is calculated and printed.
-7. <b>Prediction with User Input:</b>
-  - The program prompts the user to enter values for the features.
-  - A prediction is made based on the user's input, and the result (whether anemia is likely or not) is displayed.
+3. <b>تعریف ویژگی های ورودی (X) و متغیر هدف (y):</b>
+  - ویژگی ها شامل مقادیر حاصل از آزمایش خون (RBC، PCV، MCV، MCH، MCHC، RDW، TLC، PLT) است.
+  - متغیر هدف نشان می دهد که آیا هموگلوبین (HGB) کمتر از 12 است یا خیر. اگر کمتر باشد، 1 (کم خونی) و در غیر این صورت 0 (بدون کم خونی) مشخص می شود.
+4. <b>تقسیم داده ها:</b>
+  - داده ها به 80 درصد برای آموزش و 20 درصد برای آزمایش تقسیم می شوند.
+5. <b>آموزش مدل:</b>
+  - یک مدل رگرسیون لجستیک ایجاد شده و بر روی داده های آموزشی آموزش داده می شود.
+6. <b>ارزیابی مدل:</b>
+  - پیش بینی هایی برای مجموعه تست انجام می شود و دقت مدل محاسبه و چاپ می شود.
+7. <b>پیش‌بینی با ورودی کاربر:</b>
+  - برنامه از کاربر می خواهد مقادیری را برای ویژگی ها وارد کند.
+  - پیش بینی بر اساس ورودی کاربر انجام می شود و نتیجه (احتمال یا عدم احتمال کم خونی) نمایش داده می شود.
 
-## Here’s a line-by-line analysis of the provided code:
-1. This line imports the pandas library, which is used for data manipulation and analysis.
+## در اینجا تجزیه و تحلیل خط به خط کد ارائه شده است:
+1. این خط کتابخانه پانداها را وارد می کند که برای دستکاری و تجزیه و تحلیل داده ها استفاده می شود.
 ```python
 import pandas as pd
 ```
-2. This line imports the train_test_split function from the sklearn.model_selection module, which is used to split the dataset into training and testing sets.
+2. این خط تابع train_test_split را از ماژول sklearn.model_selection وارد می کند، که برای تقسیم مجموعه داده به مجموعه های آموزشی و آزمایشی استفاده می شود.
 ```python
 from sklearn.model_selection import train_test_split
 ```
-3. This line imports the LogisticRegression model from the sklearn.linear_model module, which will be used to create the logistic regression model.
+3. این خط مدل LogisticRegression را از ماژول sklearn.linear_model وارد می کند که برای ایجاد مدل رگرسیون لجستیک استفاده خواهد شد.
 ```python
 from sklearn.linear_model import LogisticRegression
 ```
-4. This line imports the accuracy_score function from the sklearn.metrics module, which is used to calculate the accuracy of the model.
+4. این خط تابع accuracy_score را از ماژول sklearn.metrics وارد می کند که برای محاسبه دقت مدل استفاده می شود.
 ```python
 from sklearn.metrics import accuracy_score
 ```
-5. This line loads the data from a CSV file named CBCdata_for_meandeley_csv.csv and stores it in a DataFrame called data.
+5. این خط داده ها را از یک فایل CSV به نام CBCdata_for_meandeley_csv.csv بارگیری می کند و آن را در یک DataFrame به نام داده ذخیره می کند.
 ```python
 data = pd.read_csv('CBCdata_for_meandeley_csv.csv')
 ```
-6. This line manually sets the column names of the DataFrame.
+6. این خط به صورت دستی نام ستون های DataFrame را تنظیم می کند.
 ```python
 data.columns = ['S.No', 'Age', 'Sex', 'RBC', 'PCV', 'MCV', 'MCH', 'MCHC', 'RDW', 'TLC', 'PLT', 'HGB']
 ```
-7. This line removes the first row of the DataFrame, which usually contains descriptions or headers.
+7. ین خط اولین ردیف DataFrame را که معمولاً حاوی توضیحات یا هدر است حذف می کند.
 ```python
 data = data[1:]
 ```
-8. This line attempts to convert all values in the DataFrame to numeric types. If any errors occur (such as non-numeric values), those values are converted to NaN.
+8. این خط سعی می کند تمام مقادیر موجود در DataFrame را به انواع عددی تبدیل کند. اگر هر گونه خطایی رخ دهد (مانند مقادیر غیر عددی)، آن مقادیر به NaN تبدیل می شوند.
 ```python
 data = data.apply(pd.to_numeric, errors='coerce')
 ```
-9. This line drops all rows containing missing values (NaN) from the DataFrame.
+9. این خط تمام ردیف های حاوی مقادیر گمشده (NaN) را از DataFrame حذف می کند.
 ```python
 data = data.dropna()
 ```
-10. This line defines the input features (X), which include the values from various blood tests.
+10. این خط ویژگی های ورودی (X) را مشخص می کند که شامل مقادیر آزمایش های مختلف خون می شود.
 ```python
 X = data[['RBC', 'PCV', 'MCV', 'MCH', 'MCHC', 'RDW', 'TLC', 'PLT']]
 ```
-11. This line defines the target variable (y). It sets the value to 1 (indicating anemia) if the hemoglobin (HGB) level is less than 12, and 0 (indicating no anemia) otherwise.
+11. این خط متغیر هدف (y) را تعریف می کند. اگر سطح هموگلوبین (HGB) کمتر از 12 باشد، مقدار را 1 (نشان دهنده کم خونی) و در غیر این صورت 0 (نشان دهنده کم خونی) تنظیم می کند.
 ```python
 y = (data['HGB'] < 12).astype(int)
 ```
-12. This line splits the data into training and testing sets. It allocates 80% of the data for training and 20% for testing. The random_state=42 ensures that the data is split the same way every time the code is run.
+12. این خط داده ها را به مجموعه های آموزشی و آزمایشی تقسیم می کند. 80 درصد از داده ها را برای آموزش و 20 درصد را برای آزمایش اختصاص می دهد. random_state=42 تضمین می‌کند که هر بار که کد اجرا می‌شود، داده‌ها به یک شکل تقسیم می‌شوند.
 ```python
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 ```
-13. This line creates a new instance of the logistic regression model.
+13. این خط یک نمونه جدید از مدل رگرسیون لجستیک ایجاد می کند.
 ```python
 model = LogisticRegression()
 ```
-14. This line trains the logistic regression model using the training data.
+14. این خط با استفاده از داده های آموزشی، مدل رگرسیون لجستیک را آموزش می دهد.
 ```python
 model.fit(X_train, y_train)
 ```
-15. This line makes predictions on the test set and stores the results in y_pred.
+15. این خط پیش بینی هایی را روی مجموعه تست انجام می دهد و نتایج را در y_pred ذخیره می کند.
 ```python
 y_pred = model.predict(X_test)
 ```
-16. This line calculates the accuracy of the model by comparing the predicted values to the actual values.
+16. این خط دقت مدل را با مقایسه مقادیر پیش بینی شده با مقادیر واقعی محاسبه می کند.
 ```python
 accuracy = accuracy_score(y_test, y_pred)
 ```
-17. This line prints the accuracy of the model formatted to two decimal places.
+17. این خط دقت مدل فرمت شده به دو رقم اعشار را چاپ می کند.
 ```python
 print(f"Model accuracy: {accuracy:.2f}")
 ```
-18. This line prompts the user to input values for the features and stores these values in a list called user_input. Each input is converted to a float.
+18. این خط دقت مدل فرمت شده به دو رقم اعشار را چاپ می کند. این خط از کاربر می خواهد مقادیر ورودی ویژگی ها را وارد کند و این مقادیر را در لیستی به نام user_input ذخیره می کند. هر ورودی به یک شناور تبدیل می شود.
 ```python
 user_input = [float(input(f"Please enter the value for {col}: ")) for col in X.columns]
 ```
-19. This line makes a prediction based on the user's input and stores the result in prediction.
+19. این خط بر اساس ورودی کاربر پیش بینی می کند و نتیجه را در پیش بینی ذخیره می کند.
 ```python
 prediction = model.predict([user_input])
 ```
-20. This section checks the prediction result and displays an appropriate message to the user: if the prediction is 1, it indicates that anemia is likely; if it is 0, it indicates no anemia.
+20. این بخش نتیجه پیش‌بینی را بررسی می‌کند و یک پیام مناسب به کاربر نشان می‌دهد: اگر پیش‌بینی 1 باشد، نشان‌دهنده احتمال کم خونی است. اگر 0 باشد نشان دهنده کم خونی است.
 ```python
 if prediction[0] == 1:
     print("Result: Anemia is likely.")
@@ -126,7 +126,8 @@ else:
     print("Result: No anemia.")
 ```
 
-## Python Code
+
+## کد پایتون
 ```python
 import pandas as pd
 from sklearn.model_selection import train_test_split
