@@ -1,10 +1,11 @@
 <div align="center">
 
-## Anemia: Symptoms and Complications
+## CBC-Anemia-Detection
 <img src="https://i.pinimg.com/originals/a8/f2/84/a8f284cf430e9b5ee5df1d02395ba11c.gif" height="200px" width="500px">
 </div>
 <hr>
 
+## Anemia: Symptoms and Complications
 Anemia is a medical condition characterized by a lower-than-normal number of red blood cells or hemoglobin levels in the blood. This condition can arise from various causes, including iron deficiency, vitamin B12 or folate deficiency, genetic disorders, and chronic diseases. Symptoms of anemia may include extreme fatigue, pale skin, dizziness, shortness of breath, and a rapid heartbeat.
 The complications of anemia can be serious, especially if left untreated. These complications include a higher risk of infections, cardiovascular problems such as heart failure, and a reduced ability of the body to endure physical activities. In severe cases, anemia can lead to more serious disorders like stroke or heart attack.
 Diagnosis of anemia is typically performed through blood tests, and treatment depends on the type of anemia. For iron deficiency, iron supplements and dietary changes may be effective. In the case of vitamin deficiencies, relevant supplements are prescribed.
