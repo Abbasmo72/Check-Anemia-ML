@@ -1,7 +1,7 @@
 <div align="center">
 
 ## CBC Anemia Detection
-<img src="https://i.pinimg.com/originals/a8/f2/84/a8f284cf430e9b5ee5df1d02395ba11c.gif" height="200px" width="500px">
+<img alt="Gif" src="https://i.pinimg.com/originals/a8/f2/84/a8f284cf430e9b5ee5df1d02395ba11c.gif" height="200px" width="500px">
 </div>
 <hr>
 
