@@ -22,27 +22,27 @@ Logistic regression can provide valuable insights into the importance of each fe
 ## Analysis and Prediction of Anemia Using Logistic Regression
 This code creates and evaluates a logistic regression model to predict anemia based on blood test data. Here are the steps involved in the code explained in detail:
 1. <b>Importing Libraries:</b>
-  - pandas: For data manipulation.
-  - sklearn.model_selection: To split the data into training and testing sets.
-  - sklearn.linear_model: To use the logistic regression model.
-  - sklearn.metrics: To calculate the model's accuracy.
+    - pandas: For data manipulation.
+    - sklearn.model_selection: To split the data into training and testing sets.
+    - sklearn.linear_model: To use the logistic regression model.
+    - sklearn.metrics: To calculate the model's accuracy.
 2. <b>Loading and Preparing the Dataset:</b>
-  - Data is loaded from a CSV file named CBCdata_for_meandeley_csv.csv.
-  - Column names are manually set.
-  - The first row containing descriptions is removed.
-  - Data is converted to numeric types, and any rows with missing values are dropped.
+    - Data is loaded from a CSV file named CBCdata_for_meandeley_csv.csv.
+    - Column names are manually set.
+    - The first row containing descriptions is removed.
+    - Data is converted to numeric types, and any rows with missing values are dropped.
 3. <b>Defining Input Features (X) and Target Variable (y):</b>
-  - Features include the values from blood tests (RBC, PCV, MCV, MCH, MCHC, RDW, TLC, PLT).
-  - The target variable indicates whether hemoglobin (HGB) is less than 12. If it is less, it is marked as 1 (anemia), otherwise as 0 (no anemia).
+    - Features include the values from blood tests (RBC, PCV, MCV, MCH, MCHC, RDW, TLC, PLT).
+    - The target variable indicates whether hemoglobin (HGB) is less than 12. If it is less, it is marked as 1 (anemia), otherwise as 0 (no anemia).
 4. <b>Splitting the Data:</b>
-  - The data is split into 80% for training and 20% for testing.
+    - The data is split into 80% for training and 20% for testing.
 5. <b>Training the Model:</b>
-  - A logistic regression model is created and trained on the training data.
+    - A logistic regression model is created and trained on the training data.
 6. <b>Evaluating the Model:</b>
-  - Predictions are made for the test set, and the accuracy of the model is calculated and printed.
+    - Predictions are made for the test set, and the accuracy of the model is calculated and printed.
 7. <b>Prediction with User Input:</b>
-  - The program prompts the user to enter values for the features.
-  - A prediction is made based on the user's input, and the result (whether anemia is likely or not) is displayed.
+    - The program prompts the user to enter values for the features.
+    - A prediction is made based on the user's input, and the result (whether anemia is likely or not) is displayed.
 
 ## Here’s a line-by-line analysis of the provided code:
 1. This line imports the pandas library, which is used for data manipulation and analysis.
